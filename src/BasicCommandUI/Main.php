@@ -39,7 +39,7 @@ class Main extends PluginBase implements Listener {
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args):bool
     {
         switch($cmd->getName()){
-        case "bcui":
+        case "staff":
         if(!($sender instanceof Player)){
                 $sender->sendMessage("§7This command can't be used here. Sorry!");
                 return true;
@@ -51,18 +51,18 @@ class Main extends PluginBase implements Listener {
             }
             switch ($result) {
                     case 0:
-                    $sender->addTitle("§cYou Stop", "§cSelecting Some Commands.");
+                    $sender->addTitle("§l§4SUCCESS", "§cYou have Exit the StaffPanel!");
                         break;
                     case 1:
-                    $sender->addTitle("§6Healed", "§fYou Have Been Healed.");
+                    $sender->addTitle("§l§aSUCCESS", "§bYour §lHealth§r§b Has Been Reset!");
                     $sender->setHealth(20);
 						break;
                     case 2:
-                    $sender->addTitle("§6Feeded", "§fYou Have Been Feeded.");
+                    $sender->addTitle("§l§6SUCCESS", "§7You are no longer §l§cHUNGRY§r§7!");
                     $sender->setFood(20);
                         break;
                     case 3:
-                    $sender->addTitle("§6InventoryCleared", "§fYour Inventory Has Been Cleared.");
+                    $sender->addTitle("§l§bSUCCESS", "§dYour Inventory Has Been Emptied!");
                     $sender->getInventory()->clearAll();
 					$sender->getArmorInventory()->clearAll();
                         break;
@@ -98,22 +98,22 @@ class Main extends PluginBase implements Listener {
                         break;
             }
         });
-        $form->setTitle("§l§aBasicCommandUI");
-        $form->setContent("§7Select Your Commands.");
-        $form->addButton("§4Exit", 0);
-        $form->addButton("§lHeal", 1);
-        $form->addButton("§lFeed", 2);
-        $form->addButton("§lClearInventory", 3);
-        $form->addButton("§lGamemode", 4);
-        $form->addButton("§lFly", 5);
-        $form->addButton("§lVanish", 6);
-        $form->addButton("§lGive", 7);
-        $form->addButton("§lKick", 8);
-        $form->addButton("§lBan", 9);
-        $form->addButton("§lNickname", 10);
-        $form->addButton("§lEnchant", 11);
-        $form->addButton("§lSize", 12);
-        $form->addButton("§lKits", 13);
+        $form->setTitle("§l§bAquatic§3MC §cStaff§6Panel");
+        $form->setContent("§6§eWELCOME §r§7, Fellow Staff Member To The Staff Panel Pick a Command to get Started!");
+        $form->addButton("§4§lEXIT", 0);
+        $form->addButton("§l§6Heal", 1);
+        $form->addButton("§l§6Feed", 2);
+        $form->addButton("§l§6ClearInventory", 3);
+        $form->addButton("§l§6Gamemode", 4);
+        $form->addButton("§l§6Fly", 5);
+        $form->addButton("§l§6Vanish", 6);
+        $form->addButton("§l§6Give", 7);
+        $form->addButton("§l§6Kick", 8);
+        $form->addButton("§l§6Ban", 9);
+        $form->addButton("§l§6Nickname", 10);
+        $form->addButton("§l§6Enchant", 11);
+        $form->addButton("§l§6Size", 12);
+        $form->addButton("§l§6Kits", 13);
         $form->sendToPlayer($sender);
         }
         return true;
@@ -126,34 +126,34 @@ class Main extends PluginBase implements Listener {
             }
             switch ($result) {
                     case 0:
-                    $command = "bcui";
+                    $command = "staff";
 								$this->getServer()->getCommandMap()->dispatch($sender, $command);
                         break;
                     case 1:
-                    $sender->addTitle("§6Your Gamemode", "§fHas Been Changed Into Survival.");
+                    $sender->addTitle("§l§cSURVIVAL", "§fSurviveand Fight!");
                     $sender->setGamemode(0);
                         break;
                     case 2:
-                    $sender->addTitle("§6Your Gamemode", "§fHas Been Changed Into Creative.");
+                    $sender->addTitle("§l§aCREATIVE", "§fBuild and Explore!");
                     $sender->setGamemode(1);
                         break;
                     case 3:
-                    $sender->addTitle("§6Your Gamemode", "§fHas Been Changed Into Adventure.");
+                    $sender->addTitle("§l§4ADVENTURE", "§fYou Cant Play in this mode!");
                     $sender->setGamemode(2);
                         break;
                     case 4:
-                    $sender->addTitle("§6Your Gamemode", "§fHas Been Changed Into Spectator.");
+                    $sender->addTitle("§l§7SPECTATOR", "§fCatch Them Hackers Now!");
                     $sender->setGamemode(3);
                         break;
             }
         });
-        $form->setTitle("§l§aGamemodeUI");
+        $form->setTitle("§l§d6Gamemodes");
         $form->setContent("§7Select Your Gamemode");
-        $form->addButton("§4Back", 0);
-        $form->addButton("§lSurvival", 1);
-        $form->addButton("§lCreative\nTest", 2);
-        $form->addButton("§lAdventure", 3);
-        $form->addButton("§lSpectator", 4);
+        $form->addButton("§4§lBack", 0);
+        $form->addButton("§c§lSurvival", 1);
+        $form->addButton("§l§aCreative", 2);
+        $form->addButton("§l§4Adventure", 3);
+        $form->addButton("§l§8Spectator", 4);
         $form->sendToPlayer($sender);
     }
     
@@ -165,7 +165,7 @@ class Main extends PluginBase implements Listener {
             }
             switch ($result) {
                     case 0:
-                    $command = "bcui";
+                    $command = "staff";
 								$this->getServer()->getCommandMap()->dispatch($sender, $command);
                         break;
                     case 1:
@@ -178,11 +178,11 @@ class Main extends PluginBase implements Listener {
                         break;
             }
         });
-        $form->setTitle("§l§aFlyUI");
+        $form->setTitle("§l§aFly");
         $form->setContent("§7Enable Or Disable Your Fly");
-        $form->addButton("§4Back", 0);
-        $form->addButton("§lFly Enable", 1);
-        $form->addButton("§lFly Disable", 2);
+        $form->addButton("§4§lBack", 0);
+        $form->addButton("§l§aFly Enable", 1);
+        $form->addButton("§l§cFly Disable", 2);
         $form->sendToPlayer($sender);
     }
     
@@ -194,7 +194,7 @@ class Main extends PluginBase implements Listener {
             }
             switch ($result) {
                     case 0:
-                    $command = "bcui";
+                    $command = "staff";
 								$this->getServer()->getCommandMap()->dispatch($sender, $command);
                         break;
                     case 1:
@@ -206,11 +206,11 @@ class Main extends PluginBase implements Listener {
                     $sender->addTitle("§6Vanish", "§fHas Been Disable");
             }
         });
-        $form->setTitle("VanishUI");
+        $form->setTitle("Vanish");
         $form->setContent("§7Enable Or Disable Your Vanish");
-        $form->addButton("§4Back");
-        $form->addButton("§lOn");
-        $form->addButton("§lOff");
+        $form->addButton("§4§lBack");
+        $form->addButton("§l§aOn");
+        $form->addButton("§l§cOff");
         $form->sendToPlayer($sender);
 	}
     
@@ -223,8 +223,8 @@ $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
                         $sender->addTitle("§6You Successfully", "§fGive Player Item");
                         }
                     });
-        $form->setTitle("§lGiveUI");
-        $form->addInput("§7Write Playername ItemID Amount");
+        $form->setTitle("§lGive Item");
+        $form->addInput("§7Usage: (player_name) (item_id) (amount)");
         $form->sendToPlayer($sender);
     }
     
@@ -236,7 +236,7 @@ $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
                         $this->getServer()->dispatchCommand(new ConsoleCommandSender(), "kick $result");
                         }
                     });
-        $form->setTitle("§lKickUI");
+        $form->setTitle("§lKick");
         $form->addInput("§7Write Player Name Here And Reason");
         $form->sendToPlayer($sender);
     }
@@ -249,7 +249,7 @@ $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
                         $this->getServer()->dispatchCommand(new ConsoleCommandSender(), "ban $result");
                         }
                     });
-        $form->setTitle("§lBanUI");
+        $form->setTitle("§lBan");
         $form->addInput("§7Write Player Name Here And Reason");
         $form->sendToPlayer($sender);
     }
@@ -263,7 +263,7 @@ $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
 						$sender->addTitle("§6Your Nickname", "§fHas Been Changed");
 				    }
 				});
-				$form->setTitle("§lNicknameUI");
+				$form->setTitle("§lNickname");
 				$form->addLabel("§7Please Write Your Custom Nickname Here");
 				$form->addInput("§7Write Your Nickname Here");
 				$form->sendToPlayer($sender);
@@ -277,7 +277,7 @@ $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
             }
             switch ($result) {
                     case 0:
-                    $command = "bcui";
+                    $command = "staff";
 								$this->getServer()->getCommandMap()->dispatch($sender, $command);
                         break;
                     case 1:
@@ -294,7 +294,7 @@ $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
                         break;
             }
         });
-        $form->setTitle("§lSizeUI");
+        $form->setTitle("§lSize");
         $form->setContent("§7Please Select Size You Want");
         $form->addButton("§4Back", 0);
         $form->addButton("§lSmall", 1);
@@ -311,7 +311,7 @@ $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
                         $this->getServer()->dispatchCommand(new ConsoleCommandSender(), "enchant $result");
                         }
                     });
-        $form->setTitle("§lEnchantUI");
+        $form->setTitle("§lEnchant");
         $form->addInput("§7Please Write {PlayerName} {Enchant} {Level}");
         $form->sendToPlayer($sender);
     }
@@ -324,11 +324,11 @@ $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
             }
             switch ($result) {
                     case 0:
-                    $command = "bcui";
+                    $command = "staff";
 								$this->getServer()->getCommandMap()->dispatch($sender, $command);
                         break;
                     case 1:
-                    $sender->sendMessage("§l§6Kit §8» §7You Received §6FFA §7Kit");
+                    $sender->sendMessage("§l§6Kit §8» §7You Received §6STAFF §7Kit");
 					$sender->getInventory()->clearAll();
 					$sender->getArmorInventory()->clearAll();
 	                $sender->getInventory()->addItem(Item::get(276, 0, 1));
@@ -342,10 +342,10 @@ $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
                         break;
             }
         });
-        $form->setTitle("§l§aKitUI");
+        $form->setTitle("§l§aStaff Kits");
         $form->setContent("§7Please Select Your Kit");
-        $form->addButton("§4Back", 0);
-        $form->addButton("§lFFA", 1);
+        $form->addButton("§4§lBack", 0);
+        $form->addButton("§l§dAdmin", 1);
         $form->sendToPlayer($sender);
     }
     
@@ -353,14 +353,14 @@ $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
 	$player = $event->getPlayer();
 	$name = $player->getName();
 	$event->setJoinMessage("");
-	$this->getServer()->broadcastMessage("§l§8[§a+§8]§r §e" . $name);
+	$this->getServer()->broadcastMessage("§7§l[§r§b+§l§7]§r §a" . $name);
 	}
 	
 	public function onQuit(PlayerQuitEvent $event){
 	$player = $event->getPlayer();
 	$name = $player->getName();
 	$event->setQuitMessage("");
-	$this->getServer()->broadcastMessage("§l§8[§c-§8]§r §e" . $name);
+	$this->getServer()->broadcastMessage("§l§7[§c-§7]§r §e" . $name);
 	}
     
     public function onDisable(){
