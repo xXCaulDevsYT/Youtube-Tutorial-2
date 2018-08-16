@@ -1,0 +1,10 @@
+name: BasicCommandUI
+version: 3.0
+main: BasicCommandUI\Main
+api: [3.0.0-ALPHA12, 3.0.0, 4.0.0]
+author: DeadOnBushPH
+
+commands:
+  bcui:
+    description: "BasicCommand Main Command"
+    permission: bcui.command
