@@ -2,9 +2,9 @@ name: BasicCommandUI
 version: 3.0
 main: BasicCommandUI\Main
 api: [3.0.0-ALPHA12, 3.0.0, 4.0.0]
-author: DeadOnBushPH
+author: xXCaulDevsYT
 
 commands:
   bcui:
-    description: "BasicCommand Main Command"
+    description: "for AquaticMC admins only!"
     permission: bcui.command
